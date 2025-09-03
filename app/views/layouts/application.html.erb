@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Airbnb" %></title>
+    <title><%= content_for(:title) || "Airbnb | Vacation rentals, cabins, beach houses, & more" %></title>
+    <%# favicon %>
+    <%= favicon_link_tag asset_path('favicon.ico') %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -23,8 +25,7 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <%= render "shared/header" %>
       <%= yield %>
-    </main>
   </body>
 </html>
