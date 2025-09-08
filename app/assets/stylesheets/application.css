@@ -11,3 +11,54 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper:hover .swiper-button-next,
+.swiper:hover .swiper-button-prev {
+  display: block !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+  width: 28px !important;
+  height: 28px !important;
+  background-color: white;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.swiper-button-next {
+  background-image: url('assets/next.svg') !important;
+}
+
+.swiper-button-prev {
+  background-image: url('assets/prev.svg') !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: '' !important;
+}

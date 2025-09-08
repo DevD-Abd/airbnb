@@ -1,16 +1,18 @@
 <%= link_to "#" do %>
   <div class="group relative cursor-pointer ">
     <div class="relative overflow-hidden rounded-md bg-gray-200">
-      <div class="swiper">
+      <!-- Slider main container -->
+      <div class="swiper" data-controller="swiper" style="aspect-ratio: 1 / 1; width: 100%;">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
-          <div style="aspect-ratio: 1 / 1; width: 100%;">
-            <%= image_tag property.images.last, class:"h-full w-full object-cover object-center" %>
-          </div>
-          </div>
+          <% property.images.each do |image| %>
+            <div class="swiper-slide">
+              <%= image_tag image, class:"h-full w-full object-cover object-center" %>
+            </div>
+          <% end %>
+        </div>
         
-        <%# TODO: Swiper buttons are not working %>
-        <!-- If we need navigation buttons -->
+        <!-- Navigation buttons -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
