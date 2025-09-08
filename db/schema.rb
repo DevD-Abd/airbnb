@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_08_055850) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_08_102530) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -51,6 +51,25 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_08_055850) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price_cents"
+    t.integer "reviews_count"
+    t.decimal "average_final_rating"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.integer "cleanliness_rating"
+    t.integer "accuracy_rating"
+    t.integer "checkin_rating"
+    t.integer "communication_rating"
+    t.integer "location_rating"
+    t.integer "value_rating"
+    t.decimal "final_rating"
+    t.integer "user_id", null: false
+    t.integer "property_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_reviews_on_property_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,4 +86,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_08_055850) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "reviews", "properties"
+  add_foreign_key "reviews", "users"
 end

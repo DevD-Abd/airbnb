@@ -1,18 +1,27 @@
 <%= link_to "#" do %>
   <div class="group relative cursor-pointer ">
     <div class="relative overflow-hidden rounded-md bg-gray-200">
-      <!-- Slider main container -->
-      <div class="swiper" data-controller="swiper" style="aspect-ratio: 1 / 1; width: 100%;">
+      <div class="swiper">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
-          <% property.images.each do |image| %>
-            <div class="swiper-slide">
-              <%= image_tag image, class:"h-full w-full object-cover object-center" %>
+          <div style="aspect-ratio: 1 / 1; width: 100%;">
+                      <!-- Slider main container -->
+          <div class="swiper aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <% property.images.each do |image| %>
+                <%= image_tag image, class:"swiper-slide h-full w-full object-cover object-center lg:h-full lg:w-full" %>
+              <% end %>
             </div>
-          <% end %>
-        </div>
+            
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+          </div>
         
-        <!-- Navigation buttons -->
+        <%# TODO: Swiper buttons are not working %>
+        <!-- If we need navigation buttons -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
@@ -46,7 +55,7 @@
           >
             <path fill-rule="evenodd" d="m15.1 1.58-4.13 8.88-9.86 1.27a1 1 0 0 0-.54 1.74l7.3 6.57-1.97 9.85a1 1 0 0 0 1.48 1.06l8.62-5 8.63 5a1 1 0 0 0 1.48-1.06l-1.97-9.85 7.3-6.57a1 1 0 0 0-.55-1.73l-9.86-1.28-4.12-8.88a1 1 0 0 0-1.82 0z"></path>
           </svg>
-          4.8 (127)
+                          <%= property.average_final_rating ? property.average_final_rating.round(2) : "New" %>
         </p>
       </div>
       <%# TODO: Add distance from property based on location %>
