@@ -1,5 +1,10 @@
-<div class="min-h-screen flex items-center justify-center">
-    <button class=" font-bold py-2 px-4 rounded w-full">
-      Hello World
-    </button>
+<div class="bg-white">
+  <%# TODO: Show empty page state %>
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
+    <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+      <% @properties.each_with_index do |property, index| %>
+        <%= render 'properties/property_item', property: property, minimal_details: false %>
+      <% end %>
+    </div>
+  </div>
 </div>
