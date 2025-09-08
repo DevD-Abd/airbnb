@@ -50,10 +50,9 @@
         <p class="mt-0.5 text-sm text-gray-500"><%= property.headline %></p>
       <% else %>
         <p class="mt-0.5 text-sm text-gray-500"><%= property.city %>, <%= property.state %></p>
-        <p class="mt-0.5 text-sm text-gray-500">Nov 10 - Nov 15</p>
-        <p class="mt-0.5 text-sm font-light text-black">
-          <span class="font-medium">$75</span> night
-        </p>
+                    <p class="mt-0.5 text-sm font-light text-black">
+              <span class="font-medium"><%= humanized_money_with_symbol(property.price) %></span> night
+            </p>
       <% end %>
     </div>
   </div>
